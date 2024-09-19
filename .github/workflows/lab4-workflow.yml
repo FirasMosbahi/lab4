@@ -14,10 +14,13 @@ jobs:
     install-node-js:
       runs-on: ubuntu-latest
       steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
         - name: install node js
           uses: setup-node@v4
           with:
             node-version: '20.x'
             registry-url: 'https://npm.pkg.github.com'
+            always-auth: true
         - name: install dependencies
           run: npm install
